@@ -1,3 +1,3 @@
 # my-travel-journal
 
-Find the website here -> https://app.netlify.com/sites/travel-journal-s/overview
+Find the website here -> https://travel-journal-s.netlify.app/
