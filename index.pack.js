@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -264,9 +264,9 @@ process.umask = function() { return 0; };
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(13);
+  module.exports = __webpack_require__(14);
 } else {
-  module.exports = __webpack_require__(12);
+  module.exports = __webpack_require__(13);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -376,9 +376,9 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(17);
+  module.exports = __webpack_require__(18);
 } else {
-  module.exports = __webpack_require__(16);
+  module.exports = __webpack_require__(17);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -391,7 +391,7 @@ if (process.env.NODE_ENV === 'production') {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.default = App;
 
@@ -399,7 +399,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _TravelCard = __webpack_require__(7);
+var _TravelCard = __webpack_require__(8);
 
 var _TravelCard2 = _interopRequireDefault(_TravelCard);
 
@@ -407,22 +407,27 @@ var _Navbar = __webpack_require__(6);
 
 var _Navbar2 = _interopRequireDefault(_Navbar);
 
-var _data = __webpack_require__(8);
+var _NewNavbar = __webpack_require__(7);
+
+var _NewNavbar2 = _interopRequireDefault(_NewNavbar);
+
+var _data = __webpack_require__(9);
 
 var _data2 = _interopRequireDefault(_data);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
-    var travelCards = _data2.default.map(function (item, index) {
-        return _react2.default.createElement(_TravelCard2.default, { key: index, item: item });
-    });
-    return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(_Navbar2.default, null),
-        travelCards
-    );
+  var travelCards = _data2.default.map(function (item, index) {
+    return _react2.default.createElement(_TravelCard2.default, { key: index, item: item });
+  });
+  return _react2.default.createElement(
+    "div",
+    null,
+    _react2.default.createElement(_Navbar2.default, null),
+    _react2.default.createElement(_NewNavbar2.default, null),
+    travelCards
+  );
 }
 
 /***/ }),
@@ -464,9 +469,9 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(11);
+  module.exports = __webpack_require__(12);
 } else {
-  module.exports = __webpack_require__(10);
+  module.exports = __webpack_require__(11);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -506,7 +511,47 @@ function Navbar() {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
+});
+exports.default = NewNavbar;
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function NewNavbar() {
+  return _react2.default.createElement(
+    "div",
+    null,
+    _react2.default.createElement(
+      "h1",
+      null,
+      "Something as Heading"
+    ),
+    _react2.default.createElement(
+      "p",
+      null,
+      "some random text here"
+    ),
+    _react2.default.createElement(
+      "button",
+      null,
+      "Click here"
+    )
+  );
+}
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
 exports.default = TravelCard;
 
@@ -526,61 +571,65 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //     imageUrl: "https://source.unsplash.com/WLxQvbMyfas"
 // }
 function TravelCard(props) {
-    var _props$item = props.item,
-        title = _props$item.title,
-        location = _props$item.location,
-        googleMapsUrl = _props$item.googleMapsUrl,
-        startDate = _props$item.startDate,
-        endDate = _props$item.endDate,
-        description = _props$item.description,
-        imageUrl = _props$item.imageUrl;
-    // console.log(props)
+  var _props$item = props.item,
+      title = _props$item.title,
+      location = _props$item.location,
+      googleMapsUrl = _props$item.googleMapsUrl,
+      startDate = _props$item.startDate,
+      endDate = _props$item.endDate,
+      description = _props$item.description,
+      imageUrl = _props$item.imageUrl;
+  // console.log(props)
 
-    return _react2.default.createElement(
+  return _react2.default.createElement(
+    "div",
+    { className: "card" },
+    _react2.default.createElement("img", { src: imageUrl, className: "card--image" }),
+    _react2.default.createElement(
+      "div",
+      { className: "card--info" },
+      _react2.default.createElement(
         "div",
-        { className: "card" },
-        _react2.default.createElement("img", { src: imageUrl, className: "card--image" }),
+        { className: "card--info--top" },
+        _react2.default.createElement("img", {
+          src: "https://via.placeholder.com/10/FF0000/",
+          alt: "pin icon",
+          className: "card--icon"
+        }),
         _react2.default.createElement(
-            "div",
-            { className: "card--info" },
-            _react2.default.createElement(
-                "div",
-                { className: "card--info--top" },
-                _react2.default.createElement("img", { src: "https://via.placeholder.com/10/FF0000/", alt: "pin icon", className: "card--icon" }),
-                _react2.default.createElement(
-                    "h4",
-                    { className: "card--location" },
-                    location
-                ),
-                _react2.default.createElement(
-                    "a",
-                    { href: googleMapsUrl },
-                    "View on Google Maps"
-                )
-            ),
-            _react2.default.createElement(
-                "div",
-                { className: "card--title" },
-                title
-            ),
-            _react2.default.createElement(
-                "div",
-                { className: "card--duration" },
-                startDate,
-                "-",
-                endDate
-            ),
-            _react2.default.createElement(
-                "p",
-                { className: "card--description" },
-                description
-            )
+          "h4",
+          { className: "card--location" },
+          location
+        ),
+        _react2.default.createElement(
+          "a",
+          { href: googleMapsUrl },
+          "View on Google Maps"
         )
-    );
+      ),
+      _react2.default.createElement(
+        "div",
+        { className: "card--title" },
+        title
+      ),
+      _react2.default.createElement(
+        "div",
+        { className: "card--duration" },
+        startDate,
+        "-",
+        endDate
+      ),
+      _react2.default.createElement(
+        "p",
+        { className: "card--description" },
+        description
+      )
+    )
+  );
 }
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -616,7 +665,7 @@ exports.default = [{
 }];
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -639,7 +688,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById("root"));
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -661,7 +710,7 @@ if (process.env.NODE_ENV !== "production") {
 var React = __webpack_require__(1);
 var _assign = __webpack_require__(2);
 var Scheduler = __webpack_require__(3);
-var tracing = __webpack_require__(18);
+var tracing = __webpack_require__(19);
 
 var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
 
@@ -26909,7 +26958,7 @@ exports.version = ReactVersion;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27213,7 +27262,7 @@ exports.unstable_renderSubtreeIntoContainer=function(a,b,c,d){if(!rk(c))throw Er
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29554,7 +29603,7 @@ exports.version = ReactVersion;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29584,7 +29633,7 @@ exports.useLayoutEffect=function(a,b){return S().useLayoutEffect(a,b)};exports.u
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29939,7 +29988,7 @@ exports.unstable_wrap = unstable_wrap;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29955,7 +30004,7 @@ var b=0;exports.__interactionsRef=null;exports.__subscriberRef=null;exports.unst
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30609,7 +30658,7 @@ exports.unstable_wrapCallback = unstable_wrapCallback;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -30636,16 +30685,16 @@ exports.unstable_wrapCallback=function(a){var b=P;return function(){var c=P;P=b;
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(15);
+  module.exports = __webpack_require__(16);
 } else {
-  module.exports = __webpack_require__(14);
+  module.exports = __webpack_require__(15);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
